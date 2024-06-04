@@ -79,8 +79,8 @@ function Header() {
                 <Popover className="relative">
                     <Popover.Button className="flex items-center
                     gap-x-1 text-sm font-semibold leading-6 text-blue-500">
-                        Stays
-                        <ChevronDownIcon className="h-5 w-5 flex-none text-white"
+                        Home
+                        <ChevronDownIcon className="h-5 w-5 flex-none text-blue-500"
                         aria-hidden="true" />
                     </Popover.Button>
 
@@ -131,22 +131,22 @@ function Header() {
                         </Popover.Panel>
                     </Transition>
                 </Popover>
-                <a href="#" className="text-sm font-semibold leading-6 text-white">
-                    Flights
+                <a href="#" className="text-sm font-semibold leading-6 text-blue-500">
+                    About
                 </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-white">
-                    Car Rentals
+                <a href="#" className="text-sm font-semibold leading-6 text-blue-500">
+                    Help
                 </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-white">
+                {/* <a href="#" className="text-sm font-semibold leading-6 text-blue-500">
                     Attractions
                 </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-white">
+                <a href="#" className="text-sm font-semibold leading-6 text-blue-500">
                     Flight + Hotel
-                </a>
+                </a> */}
             </Popover.Group>
 
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" className="text-sm font-semibold leading-6 text-white">
+                <a href="#" className="text-sm font-semibold leading-6 text-blue-500">
                     Log in <span aria-hidden="true">&rarr;</span>
                 </a>
             </div>
