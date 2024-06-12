@@ -16,12 +16,10 @@ import { getServerSession } from "next-auth";
 
 
 
-async function Header() {
+function Header() {
 
     const [mobileMenuOpen , setMobileMenuOpen] = useState(false);
-    const session = await getServerSession(authOptions);
-    console.log(session);
-
+    
     const products = [
         {
             name: "Book a Stay",
