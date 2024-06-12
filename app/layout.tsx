@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClientProviders>
+    <ClientProviders >
         <html lang="en">
       <body className={inter.className}>
         <Header />

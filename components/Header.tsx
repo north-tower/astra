@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Bars3Icon , ChatBubbleLeftIcon, HomeIcon, 
     PaperAirplaneIcon,
     ChevronDownIcon, 
@@ -11,14 +11,11 @@ import { Dialog, Disclosure, Popover, Transition } from
  "@headlessui/react"
 import { cn } from "@/lib/utils";
 import UserButton from "./UserButton";
-import { authOptions } from "@/auth";
-import { getServerSession } from "next-auth";
-
-
 
 function Header() {
 
     const [mobileMenuOpen , setMobileMenuOpen] = useState(false);
+    
     
     const products = [
         {
