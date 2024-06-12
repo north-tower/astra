@@ -1,12 +1,4 @@
 import Image from "next/image"
-import { SearchIcon } from '@heroicons/react/outline'
-import {
-  MenuIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/outline";
-import { signIn, signOut, useSession } from 'next-auth/react';
-
-
 
 function Header() {
 
@@ -34,7 +26,7 @@ function Header() {
             <input className="p-2 h-full w-6 flex-grow 
             flex-shrink rounded-l-md
             focus:outline-none px-4" type="text" />
-            <SearchIcon className="h-12 p-4" />
+            <MagnifyingGlassIcon className="h-12 p-4" />
           </div>
 
           <div className="text-white flex items-center 
@@ -62,7 +54,7 @@ function Header() {
 
         <div className="flex items-center space-x-3 p-2 pl-6 bg-amazon_blue-light text-white text-sm">
           <p className="link flex items-center">
-            <MenuIcon className="h-6 mr-1" />
+            <Bars3Icon className="h-6 mr-1" />
             All
           </p>
           {/* <p className="link ">Prime video</p> */}
@@ -79,5 +71,6 @@ function Header() {
     </header>  
   )
 }
+import { Bars3Icon, MagnifyingGlassIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
 
 export default Header
