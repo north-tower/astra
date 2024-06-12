@@ -1,11 +1,18 @@
 import { MessageSquarePlusIcon } from 'lucide-react'
 import React from 'react'
 import { Button } from './ui/button'
+import { useRouter } from 'next/navigation'
 
 function CreateChatButton() {
+
+    const router = useRouter();
+    const createNewChat = async () => {
+
+        router.push('/chat/abc');
+    }
   return (
-    <Button>
-        <MessageSquarePlusIcon />
+    <Button variant="ghost" onClick={createNewChat} >
+        <MessageSquarePlusIcon  />
     </Button>
   )
 }
