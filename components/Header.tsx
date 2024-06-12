@@ -11,12 +11,16 @@ import { Dialog, Disclosure, Popover, Transition } from
  "@headlessui/react"
 import { cn } from "@/lib/utils";
 import UserButton from "./UserButton";
+import { authOptions } from "@/auth";
+import { getServerSession } from "next-auth";
 
 
 
-function Header() {
+async function Header() {
 
     const [mobileMenuOpen , setMobileMenuOpen] = useState(false);
+    const session = await getServerSession(authOptions);
+    console.log(session);
 
     const products = [
         {
