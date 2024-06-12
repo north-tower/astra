@@ -10,6 +10,7 @@ import { Bars3Icon , ChatBubbleLeftIcon, HomeIcon,
 import { Dialog, Disclosure, Popover, Transition } from
  "@headlessui/react"
 import { cn } from "@/lib/utils";
+import UserButton from "./UserButton";
 
 
 
@@ -146,9 +147,7 @@ function Header() {
             </Popover.Group>
 
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" className="text-sm font-semibold leading-6 text-blue-500">
-                    Log in <span aria-hidden="true">&rarr;</span>
-                </a>
+              <UserButton />
             </div>
         </nav>
 
