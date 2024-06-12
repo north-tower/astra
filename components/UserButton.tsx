@@ -1,3 +1,5 @@
+'use client'
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -10,12 +12,13 @@ import UserAvatar from "./UserAvatar"
 import { Session, getServerSession } from "next-auth"
 import { authOptions } from "@/auth"
 import { Button } from "./ui/button"
+import { signIn } from "next-auth/react"
   
 
 function UserButton({ session }: { session: Session | null}) {
 
   if(!session) return(
-    <Button>
+    <Button variant={"outline"} onClick={() => signIn()}>
       Sign in
     </Button>
   )

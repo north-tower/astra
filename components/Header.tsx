@@ -13,12 +13,15 @@ import { Dialog, Disclosure, Popover, Transition } from
 import { cn } from "@/lib/utils";
 import UserButton from "./UserButton";
 
+
 function Header() {
 
     const [mobileMenuOpen , setMobileMenuOpen] = useState(false);
     const { data: session, status } = useSession();
 
+    console.log(status);
     console.log(session);
+
     
     const products = [
         {
@@ -236,3 +239,4 @@ function Header() {
 }
 
 export default Header
+
