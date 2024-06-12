@@ -5,9 +5,9 @@ import Image from "next/image";
 
 function UserAvatar(
     {name,image,className,}: {
-        name?: string;
-        image?: string;
-        className?: string;
+        name?: string | null;
+        image?: string | null;
+        className?: string | null;
     }
 ) {
   return (
@@ -23,7 +23,7 @@ function UserAvatar(
             )}
             {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
             <AvatarFallback delayMs={1000} className="dark:bg-white dark:text-black text-lg">
-            {name?.split(" ").map((n) => n[0]).join("")}
+                {name?.split(" ").map((n) => n[0]).join("")}
             </AvatarFallback>
         </Avatar>
 
