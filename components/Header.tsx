@@ -6,6 +6,7 @@ import UserButton from "./UserButton"
 import { authOptions } from "@/auth"
 import Link from "next/link"
 import { MessagesSquareIcon } from "lucide-react"
+import CreateChatButton from "./CreateChatButton"
 // import CreateChatButton from "./CreateChatButton"
 // import UpgradeBanner from "./UpgradeBanner"
 
@@ -28,7 +29,7 @@ async function Header() {
               <MessagesSquareIcon className="text-black dark:text-white" />
             
             </Link>
-            {/* <CreateChatButton /> */}
+            <CreateChatButton />
             </>
           ) : (
             <Link href="/pricing">Pricing</Link>
