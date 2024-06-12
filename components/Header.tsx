@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import { useSession } from 'next-auth/react';
 import { Fragment, useEffect, useState } from "react";
 import { Bars3Icon , ChatBubbleLeftIcon, HomeIcon, 
     PaperAirplaneIcon,
@@ -15,7 +16,9 @@ import UserButton from "./UserButton";
 function Header() {
 
     const [mobileMenuOpen , setMobileMenuOpen] = useState(false);
-    
+    const { data: session, status } = useSession();
+
+    console.log(session);
     
     const products = [
         {
@@ -146,7 +149,7 @@ function Header() {
             </Popover.Group>
 
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-              <UserButton />
+              <UserButton session={session} />
             </div>
         </nav>
 

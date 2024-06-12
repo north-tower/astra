@@ -7,9 +7,19 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
 import UserAvatar from "./UserAvatar"
+import { Session, getServerSession } from "next-auth"
+import { authOptions } from "@/auth"
+import { Button } from "./ui/button"
   
 
-function UserButton() {
+function UserButton({ session }: { session: Session | null}) {
+
+  if(!session) return(
+    <Button>
+      Sign in
+    </Button>
+  )
+
   return (
     <DropdownMenu>
         <DropdownMenuTrigger>
