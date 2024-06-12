@@ -23,7 +23,7 @@ function UserAvatar(
             )}
             {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
             <AvatarFallback delayMs={1000} className="dark:bg-white dark:text-black text-lg">
-              CN
+            {name?.split(" ").map((n) => n[0]).join("")}
             </AvatarFallback>
         </Avatar>
 
