@@ -30,8 +30,27 @@ function CheckOutButton({ sub } : { sub: string }) {
         success_url: window.location.origin,
         cancel_url: window.location.origin,
       }
-    )
-  }
+    );
+
+    return onSnapshot(docRef, snap => {
+      const data = snap.data();
+      const url = data?.url;
+      const error = data?.error;
+
+      if(error){
+        alert(`An error occured: ${error.message}` )
+      }
+      if(url){
+        window.location.assign(url);
+        setLoading(false);
+      }
+    })
+
+    
+  };
+
+
+
 
 
   return (
