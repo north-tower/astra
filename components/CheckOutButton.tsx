@@ -29,9 +29,20 @@ function CheckOutButton({ sub } : { sub: string }) {
         price: "100",
         success_url: window.location.origin,
         cancel_url: window.location.origin,
+        role: "PRO",
+        status: "Active"
       }
     );
 
+    const docRef2 = await addDoc(
+      collection(db, "customers",session.user.id, "checkout_sessions" ), {
+        price: "100",
+        success_url: window.location.origin,
+        cancel_url: window.location.origin,
+        role: "PRO",
+        status: "Active"
+      }
+    );
     return onSnapshot(docRef, snap => {
       const data = snap.data();
       const url = data?.url;

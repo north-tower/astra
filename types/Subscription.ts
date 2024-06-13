@@ -2,5 +2,8 @@ import { DocumentData, DocumentReference, Timestamp } from "firebase-admin/fires
 
 export interface Subscription {
     id?: string;
-    price: DocumentReference<DocumentData>
+    price: DocumentReference<DocumentData>;
+    role: DocumentReference<DocumentData>;
+    status: string | null;
+    amount: DocumentReference<DocumentData>;
 }
