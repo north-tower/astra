@@ -3,7 +3,7 @@ import { DocumentData, DocumentReference, Timestamp } from "firebase-admin/fires
 export interface Subscription {
     id?: string;
     price: DocumentReference<DocumentData>;
-    role: DocumentReference<DocumentData>;
+    role: 'pro' | 'no';
     status: string | null;
     amount: DocumentReference<DocumentData>;
 }
