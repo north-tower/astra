@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import ClientProviders from "@/components/ClientProviders";
+import FirebaseAuthProvider from "@/components/FirebaseAuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +18,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <ClientProviders >
+      <FirebaseAuthProvider>
         <html lang="en">
-      <body className={inter.className}>
-        <Header />
+            <body className={inter.className}>
+              <Header />
+              
+              {children}
+            </body>
+          </html>
+      </FirebaseAuthProvider>
         
-        {children}</body>
-    </html>
 
     </ClientProviders>
   
