@@ -25,11 +25,12 @@ function CheckOutButton({ sub } : { sub: string }) {
     setLoading(true);
 
     const docRef = await addDoc(
-      collection(db, "customers",session.user.id, "checkout_sessions" ), {
+      collection(db, "customers",session.user.id, "subscriptions" ), {
         price: "100",
+        amount: "100",
         success_url: window.location.origin,
         cancel_url: window.location.origin,
-        role: "PRO",
+        role: "pro",
         status: "Active"
       }
     );
