@@ -1,21 +1,40 @@
-import ChatList from "@/components/ChatList";
+
+import { authOptions } from "@/auth"
+import AdminControls from "@/components/AdminControls";
+import ChatInput from "@/components/ChatInput";
+import ChatMembersBadges from "@/components/ChatMembersBadges";
+// import ChatMessages from "@/components/ChatMessages";
+import { sortedMessagesRef } from "@/lib/converters/Message";
+import { getDocs } from "firebase/firestore";
+import { getServerSession } from "next-auth"
 
 type Props = {
-    params: {};
-    searchParams: {
-        error: string;
-    }
+  params: {
+    chatId: string;
+  }
 }
-function ChatsPage({ searchParams: { error }}: Props) {
+
+async function ChatPage({ params: {chatId}}: Props) {
+  const session = await getServerSession(authOptions);
+
+  const initialMessages = (await getDocs(sortedMessagesRef(chatId))).docs.map(
+    (doc) => doc.data()
+  );
+
   return (
-    <div>
-      <h1>Chats
-        </h1>
+    <>
+    {/* <AdminControls chatId={chatId} />
+    <ChatMembersBadges chatId={chatId} />
 
-    {/* <ChatList /> */}
-
-    </div>
+    <div className="flex-1">
+      <ChatMessages chatId={chatId}
+      session={session}
+      initialMessages={initialMessages} />
+    </div> */}
+    
+    <ChatInput chatId={chatId} />
+    </>
   )
 }
 
-export default ChatsPage
+export default ChatPage
