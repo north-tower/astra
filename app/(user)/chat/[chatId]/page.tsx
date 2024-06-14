@@ -1,9 +1,21 @@
-import React from 'react'
+import ChatList from "@/components/ChatList";
 
-function page() {
+type Props = {
+    params: {};
+    searchParams: {
+        error: string;
+    }
+}
+function ChatsPage({ searchParams: { error }}: Props) {
   return (
-    <div>page</div>
+    <div>
+      <h1>Chats
+        </h1>
+
+    {/* <ChatList /> */}
+
+    </div>
   )
 }
 
-export default page
+export default ChatsPage
