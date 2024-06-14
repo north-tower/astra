@@ -2,7 +2,8 @@ import React from 'react'
 
 function ManageAccountButton() {
   return (
-    <div>ManageAccountButton</div>
+  <div>Manage Account</div>
+  
   )
 }
 
