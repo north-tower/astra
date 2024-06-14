@@ -6,18 +6,19 @@ import { useSession } from 'next-auth/react'
 import Link from 'next/link';
 import React, { useState } from 'react'
 // import LoadingSpinner from './LoadingSpinner';
-// import { useSubscriptionStore } from '@/store/store';
+import { useSubscriptionStore } from '@/store/store';
+import ManageAccountButton from './ManageAccountButton';
 
 function CheckOutButton({ sub } : { sub: string }) {
   const { data: session} = useSession();
 
   const [loading,setLoading] = useState(false);
 
-//   const subscription = useSubscriptionStore((state) => state.subscription)
+  const subscription = useSubscriptionStore((state) => state.subscription)
 
-//   const isLoadingSubscription = subscription === undefined;
+  const isLoadingSubscription = subscription === undefined;
 
-//   const isSubscribed = subscription?.status === "active" && subscription?.role === "pro";
+  const isSubscribed = subscription?.status === "active" && subscription?.role === "pro";
 
   const createCheckOutSession = async () => {
     if(!session?.user.id) return;
@@ -63,7 +64,13 @@ function CheckOutButton({ sub } : { sub: string }) {
     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
     focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80 
     disabled:bg-indigo-600/50 disabled:text-white disabled:cursor-default
-    '>{loading ? "loading" : "Sign Up"}</button>
+    '>{isSubscribed ? (
+      <ManageAccountButton />
+    ) : isLoadingSubscription || loading ? (
+      "Loading"
+    ) : (
+      
+      "Sign Up")}</button>
   )
 }
 
