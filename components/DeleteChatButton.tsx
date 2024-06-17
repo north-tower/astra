@@ -25,6 +25,23 @@ function DeleteChatButton({chatId}: { chatId: string}) {
         });
 
         console.log("Deleting : " , chatId);
+
+        await fetch("/api/chat/delete", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ chatId: chatId}),
+        }).then((res) => {
+            toast({
+                title: "Success",
+                description: "Your chat has been deleted",
+                className: "bg-green-600 text-white",
+                duration: 3000,
+            });
+            router.replace('/chat');
+
+        })
     };
     
   return (
