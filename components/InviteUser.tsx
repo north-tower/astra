@@ -21,6 +21,7 @@ import { ChatMembersRef, addChatRef } from "@/lib/converters/ChatMembers";
 import { getDocs, serverTimestamp, setDoc } from "firebase/firestore";
 import { ToastAction } from "./ui/toast";
 import { getUserByEmailRef } from "@/lib/converters/User";
+import ShareLink from "./ShareLink";
 
 
 
@@ -159,6 +160,12 @@ function InviteUser({ chatId }: { chatId: string}) {
                 </Form>
             </DialogContent>
         </Dialog>
+
+        <ShareLink 
+        isOpen={openInviteLink}
+        setIsOpen={setOpenInviteLink}
+        chatId={chatId}
+        />
         
         </>
     )
