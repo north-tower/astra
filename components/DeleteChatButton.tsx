@@ -1,6 +1,8 @@
+'use client'
+
 import useAdminId from '@/hooks/useAdminId';
 import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useToast } from './ui/use-toast';
 import { Dialog, DialogClose, DialogContent, DialogDescription,
@@ -8,7 +10,6 @@ import { Dialog, DialogClose, DialogContent, DialogDescription,
     DialogHeader,DialogTitle,DialogTrigger
 } from "@/components/ui/dialog";
 import { Button } from "./ui/button";
-
 
 function DeleteChatButton({chatId}: { chatId: string}) {
     const { data: session} = useSession();
