@@ -18,7 +18,14 @@ function DeleteChatButton({chatId}: { chatId: string}) {
     const router = useRouter();
     const adminId = useAdminId({ chatId });
 
-    const handleDelete = async () => {};
+    const handleDelete = async () => {
+        toast({
+            title:"Deleting Chat",
+            description: "Please wait while we delete the chat..."
+        });
+
+        console.log("Deleting : " , chatId);
+    };
     
   return (
     session?.user.id === adminId && (
@@ -40,7 +47,7 @@ function DeleteChatButton({chatId}: { chatId: string}) {
                     Delete
                 </Button>
                <Button variant={"outline"} >
-                    Delete
+                    Cancel
                 </Button>
             </div>
            
