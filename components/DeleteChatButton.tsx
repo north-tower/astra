@@ -39,9 +39,9 @@ function DeleteChatButton({chatId}: { chatId: string}) {
                 className: "bg-green-600 text-white",
                 duration: 3000,
             });
-            router.replace('/chat');
+            router.replace('/home2');
 
-        })
+        }).finally(() => setOpen(false));
     };
     
   return (
