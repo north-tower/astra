@@ -23,8 +23,8 @@ async function ChatPage({ params: {chatId}}: Props) {
 
   return (
     <>
-    {/* <AdminControls chatId={chatId} />
-    <ChatMembersBadges chatId={chatId} /> */}
+    <AdminControls chatId={chatId} />
+    <ChatMembersBadges chatId={chatId} />
 
     <div className="flex-1">
       <ChatMessages chatId={chatId}
