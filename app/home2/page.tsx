@@ -2,7 +2,14 @@ import Feed from '@/components/Feed'
 import TinderCards from '@/components/TinderCards'
 import React from 'react'
 
-function page() {
+type Props = { 
+  params: {};
+  searchParams: {
+    error: string;
+  }
+}
+
+function page({ searchParams: {error} } : Props) {
   return (
     <main>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-7xl mx-auto">
