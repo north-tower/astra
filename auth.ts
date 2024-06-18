@@ -2,6 +2,7 @@ import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { adminAuth, adminDb } from "./firebase-admin";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
+import { Adapter } from "next-auth/adapters";
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -11,8 +12,8 @@ export const authOptions: NextAuthOptions = {
         }),
     ],
     callbacks: {
-        session: async ({ session, token}) => {
-            if(session?.user) {
+        session: async ({ session, token }) => {
+            if (session?.user) {
                 if (token.sub) {
                     session.user.id = token.sub;
 
@@ -22,8 +23,8 @@ export const authOptions: NextAuthOptions = {
             }
             return session;
         },
-        jwt: async ({ user , token }) => {
-            if(user) {
+        jwt: async ({ user, token }) => {
+            if (user) {
                 token.sub = user.id;
             }
             return token;
@@ -32,8 +33,5 @@ export const authOptions: NextAuthOptions = {
     session: {
         strategy: 'jwt',
     },
-    adapter: FirestoreAdapter(adminDb),
-   
+    adapter: FirestoreAdapter(adminDb) as unknown as Adapter,
 } satisfies NextAuthOptions;
-
-
