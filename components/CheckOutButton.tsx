@@ -82,7 +82,7 @@ function CheckOutButton({ sub } : { sub: string }) {
       "Loading"
     ) : (
       <button onClick={() => createCheckOutSession()}>
-      "Sign Up"
+    Sign Up
       </button>
       
       )}</div>
